@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Montserrat:wght@700&family=Philosopher:ital@1&family=Poppins&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    cursor: none;
+}
+section
+{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2b4f0c;
+    animation: animateColor 8s linear infinite;
+}
+@keyframes animateColor
+{
+ 100%
+  {
+      filter: hue-rotate(360deg);
+  }
+}
+.container
+{
+    display: flex;
+}
+ .circle
+{
+     position: relative;
+     width: 250px;
+     height: 250px;
+     margin: 0 -7.5px;
+ }
+ span
+ {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     transform: rotate(calc(18deg*var(--i)));
+     /* 360 / 20=18deg */
+ }
+
+ span::before
+ {
+     content: '';
+     position: absolute;
+     right: 0;
+     top: calc(50% - 7.5px);
+     width: 15px;
+     height: 15px;
+     background: #00ff0a;
+     border-radius: 50%;
+     box-shadow:
+             0 0 10px #00ff0a,
+             0 0 40px #00ff0a,
+             0 0 60px #00ff0a,
+             0 0 80px #00ff0a,
+             0 0 100px #00ff0a;
+             transform: scale(0.1);
+     animation: animate 4s linear infinite;
+     animation-delay: calc(0.1s*var(--i));
+ }
+@keyframes animate
+{
+    0%
+    {
+        transform: scale(1);
+    }
+    50%
+    {
+        transform: scale(0.1);
+    }
+}
+section .container .circle:nth-child(2)
+{
+    transform: rotate(-180deg);
+}
+section .container .circle:nth-child(2) span::before
+{
+    animation-delay: calc(-0.1s*var(--i));
+}
+h1{
+    font-size: 100px;
+    letter-spacing: 5px;
+    position: absolute;
+    top:0;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+    opacity: .5;
+    -webkit-text-stroke: 2px black;
+    pointer-events: none;
+}
+#cursor{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    animation: animateColor 8s linear infinite;
+}
+#cursor:before{
+    content: '';
+    width: 0;
+    height: 0;
+}
